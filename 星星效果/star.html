@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url(https://at.alicdn.com/t/font_2791147_qrx48tp59bd.css);
+
+    body {
+      background: rgb(0, 0, 0);
+      overflow: hidden;
+    }
+
+    @keyframes fade-1 {
+        0% {
+          opacity: 1;
+        }      
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+    }
+    @keyframes fade-2 {
+        0% {
+          opacity: 0;
+        }      
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+    }
+     .item-1 {
+      animation: fade-1 .3s infinite;
+    }
+    .item-2 {
+      animation: fade-2 .3s infinite;
+    } 
+
+  </style>
+</head>
+
+<body>
+  <script>
+    function getRandom(x, y) {
+      return Math.random() * (y - x) + x;
+    }
+
+    function drawStars(num) {
+      if (typeof num !== 'number' && num !== num) {
+        return;
+      }
+      for (var i = 0; i < num; i++) {
+        var div = document.createElement('div');
+        // div.innerText = parseInt(getRandom(0, 10));也可以是数字
+        
+
+        div.className = 'iconfont icon-star item-' + parseInt(getRandom(1,3));
+        
+
+        // 设置样式
+        // 字体大小
+        div.style.fontSize = getRandom(20, 30) + 'px';
+        // 颜色随机
+        div.style.color = 'rgb(' + getRandom(0, 256) + ',' + getRandom(0, 256) + ',' + getRandom(0, 256) + ')';
+        // 位置随机（可视区域位置）
+        div.style.position = 'absolute';
+        div.style.left = getRandom(0, window.innerWidth) + 'px';
+        div.style.top = getRandom(0, window.innerHeight) + 'px';
+        
+
+
+        document.body.appendChild(div);
+      }
+    }
+
+    drawStars(500);
+  </script>
+</body>
+
+</html>
